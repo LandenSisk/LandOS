@@ -1,6 +1,5 @@
-# LandOS
-(insert future image here)
-Operating system writing completely from scratch in assembly.
+<img src="Docs/Resources/LandOS-JPEG-Dark.jpg" alt="LandOS Logo" height="500px"><br />
+16 bit operating system written completely from scratch in Assembly x86
 ## How do I use this
 <img src="Docs/Resources/winlogo.png" alt="Windows Logo" width="12px"> Instructions for windows: <br />
 <b>REQUIREMENTS</b><br />
