@@ -13,7 +13,7 @@ call printstring
 
 jmp $
 
-%include 'C:\Users\user\Documents\OSFromScratch\boot_sect_op.asm'
+%include "src/boot_sect_op.asm"
 
 test_string db 'Hello, World!', 0
 
