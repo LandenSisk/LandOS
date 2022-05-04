@@ -50,3 +50,8 @@ When you are finished you can simply close the VNC app, CTRL + C in Termux and t
 
 ```> vncserver -kill :1 <----- Or whatever process it is ```<br /><br />
 
+OPTIONAL:  Assembling the source code is rather simple.  First, navigate to the "src" directory.  Then, use the command:<br />
+
+```> nasm boot_sect.asm -f bin -o boot_sect.bin```<br />
+This creates the binary file you can run in QEMU.  Remember, this is completely optional.  As you are given an already assembled .bin file in the "images" directory.
+
