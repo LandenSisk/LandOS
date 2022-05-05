@@ -30,3 +30,21 @@ mov bl, al
 int 0x10
 popa
 ret
+
+keytobios:
+mov ah, 0x00
+int 0x16
+cmp al, 0
+je .err
+jne .cont
+.err:
+mov si, err_msg
+call printstring
+ret
+.cont:
+mov si, suc_msg
+call printstring
+ret
+
+err_msg db "err", 0
+suc_msg db "Success", 0
