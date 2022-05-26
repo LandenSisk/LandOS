@@ -1,10 +1,4 @@
-printchar:
-pusha ; push all values in registers to stack
-mov ah, 0x0e ; teletype function
-mov al, bl
-int 0x10
-popa ; pop all values off the stack into registers
-ret
+[BITS 16]
 
 printstring:
 pusha
@@ -31,7 +25,7 @@ int 0x10
 popa
 ret
 
-keytobios:
+keytokernel:
 mov ah, 0x00
 int 0x16
 cmp al, 0
@@ -42,9 +36,25 @@ mov si, err_msg
 call printstring
 ret
 .cont:
-mov si, suc_msg
+mov ah, 0x02
+mov al, 0x01
+mov ch, 0x00
+mov cl, 0x02
+mov dh, 0x00
+mov dl, 0x00
+mov bx, 0x1000
+mov es, bx
+int 0x13
+jc disk_error
+mov bh, 0
+int 0x10
+jmp 0x1000:0000
+
+disk_error:
+mov si, err_msg
 call printstring
-ret
+hlt
+
 
 err_msg db "err", 0
 suc_msg db "Success", 0
