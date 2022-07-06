@@ -1,0 +1,15 @@
+6/6/2022:
+• LandOS changes background color, color can be changed
+  by changing the value in bl. Tested values:
+  - 0x01: Blue
+  - 0x02: Green
+  - 0x03: Sky Blue
+  - 0x04: Red
+  - 0x05: Pink
+  - 0x06: Yellow
+  - 0x07: Gray
+  - 0x08: Dark Green
+  - 0x09: Cobalt Blue
+• New function that changes background color
+• Fixed bug causing OS to print random characters
+• WIP: Began working on a function to draw a new screen
