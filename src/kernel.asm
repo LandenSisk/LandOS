@@ -12,6 +12,11 @@ mov sp, 4096
 mov ax, 07C0h
 mov ds, ax
 
+mov ah, 0xB
+mov bh, 0x00
+mov bl, 0x01
+int 0x10
+
 mov si, successmsg
 call printstring
 call newline
@@ -20,5 +25,6 @@ call printstring
 call newline
 call keytocont
 
+jmp $ ; Necessary 
 
 %include 'kernel_op.asm'

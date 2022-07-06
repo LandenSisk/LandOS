@@ -18,8 +18,6 @@ mov bh, 0
 int 0x10
 jmp 0x1000:0000
 
-jmp $
-
 ; Boot-loader has to be 512 bytes exactly. 
 ; Fill up the rest of the .bin file with a placeholder
 ; and set the last two bytes as the magic number.
