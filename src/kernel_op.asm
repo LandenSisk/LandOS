@@ -29,7 +29,13 @@ int 0x10
 popa
 ret
 
-keytocont:
+to_main:
+mov si, returnmsg
+call printstring
+call newline
+mov si, keyinput
+call printstring
+call newline
 mov ah, 0x00
 int 0x16
 cmp al, 0
@@ -41,7 +47,7 @@ call newline
 ret
 
 newscreen:
-; WIP
+pusha
 ; Set background-color to blue
 mov ah, 0xB
 mov bh, 0x00
@@ -50,9 +56,17 @@ int 0x10
 ; Move cursor to top left
 mov ah, 0x02
 mov bh, 0x00
-mov dh, 0x00
-mov dl, 0x00
+mov dx, 0x00
 int 0x10
+; Wipe the Screen
+mov ah, 0x06
+mov al, 0x00
+mov bh, 0x07
+mov cx, 0x00
+mov dh, 0x24
+mov dl, 0x79
+int 0x10
+popa
 ret
 
 changebgcolor:
@@ -63,7 +77,7 @@ int 0x10
 ret
 
 
-
+returnmsg db 'Returning to home page', 0
 successmsg db 'Kernel successfully loaded', 0
 keyinput db 'Press any key to continue...', 0
 test_msg db 'Success', 0

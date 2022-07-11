@@ -12,18 +12,14 @@ mov sp, 4096
 mov ax, 07C0h
 mov ds, ax
 
-mov ah, 0xB
-mov bh, 0x00
-mov bl, 0x01
-int 0x10
+; All functions will be called until i can loop back to a safe place
+
+call newscreen
 
 mov si, successmsg
 call printstring
 call newline
-mov si, keyinput
-call printstring
-call newline
-call keytocont
+call to_main
 
 jmp $ ; Necessary 
 
