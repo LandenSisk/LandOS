@@ -19,7 +19,7 @@ call newscreen
 mov si, successmsg
 call printstring
 call newline
-call to_main
+jmp to_main
 
 jmp $ ; Necessary 
 

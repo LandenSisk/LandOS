@@ -1,5 +1,18 @@
 [BITS 16]
 
+main:
+call newscreen
+mov si, welcomemsg
+call printstring
+call newline
+mov si, keyinput
+call printstring
+call newline
+mov ah, 0x00
+int 0x16
+cmp al, 0
+jne to_main
+
 printchar:
 mov ah, 0x0e
 mov al, bl
@@ -15,6 +28,7 @@ je .done
 int 10h
 jmp .repeat
 .done:
+xor si, si ; clear out si
 ret
 
 newline:
@@ -29,7 +43,9 @@ int 0x10
 popa
 ret
 
+; jump to main instead of calling because we will not need to return anytime soon
 to_main:
+call newscreen
 mov si, returnmsg
 call printstring
 call newline
@@ -44,7 +60,7 @@ jne .cont
 mov si, test_msg
 call printstring
 call newline
-ret
+jmp main
 
 newscreen:
 pusha
@@ -76,7 +92,7 @@ mov bl, 0x01 ; Modify value here to change background color
 int 0x10
 ret
 
-
+welcomemsg db 'Welcome to LandOS', 0
 returnmsg db 'Returning to home page', 0
 successmsg db 'Kernel successfully loaded', 0
 keyinput db 'Press any key to continue...', 0
