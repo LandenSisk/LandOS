@@ -8,10 +8,18 @@ call newline
 mov si, keyinput
 call printstring
 call newline
+jmp .nav_main
+.nav_main: ; Moving cursor and selecting things on the main screen
+; Get key and check if scan code, stored in ah, is Up(72), Down(80), or Enter(28)
 mov ah, 0x00
 int 0x16
-cmp al, 0
-jne to_main
+cmp ah, 72 ; up
+je to_main
+cmp ah, 80 ; down
+je to_main
+cmp ah, 28 ; enter
+je to_main
+jmp .nav_main
 
 printchar:
 mov ah, 0x0e
