@@ -1,5 +1,11 @@
+; BOOT_SECT.ASM
+; Created: 7/20/2022
+; Last Modified: 7/20/2022
+; Author: Landen Sisk
+; Description:  File which contains the code to boot to the kernel.
+
 [BITS 16]
-[ORG 0X7c00]
+[ORG 0X7c00] ; Fancy place where the boot loader starts
 
 %define bootDrive 0
 

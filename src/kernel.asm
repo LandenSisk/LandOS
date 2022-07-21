@@ -1,8 +1,11 @@
-; Creating Kernel because we can include more features and
-; isn't limited to 512 bytes
+; KERNEL.ASM
+; Created: 7/20/2022
+; Last Modified: 7/20/2022
+; Author: Landen Sisk
+; Description:  File which contains the code and includes for the kernel.
 
 [BITS 16]
-[ORG 0]
+[ORG 0] ; Starting at a clean new place
 
 mov ax, 07C0h
 add ax, 288
@@ -23,4 +26,7 @@ jmp to_main
 
 jmp $ ; Necessary 
 
-%include 'kernel_op.asm'
+%include 'BaseFeatures/kernel_op.asm'
+%include 'BaseFeatures/screen.asm'
+%include 'BaseFeatures/audio.asm'
+%include 'BaseFeatures/chars.asm'
