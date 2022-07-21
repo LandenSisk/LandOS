@@ -1,4 +1,4 @@
-6/6/2022:
+7/6/2022:
 • LandOS changes background color, color can be changed
   by changing the value in bl. Tested values:
   - 0x01: Blue
@@ -14,22 +14,26 @@
 • Fixed bug causing OS to print random characters
 • WIP: Began working on a function to draw a new screen
 
-6/10/2022:
+7/10/2022:
 • Finshed "newscreen" function
 • Utilized "newscreen" function to clear ugly text after boot
 • Set *X register to 0x00 if both *l and *h register's value was 0x00
 • "keytocont" is now "to_main"
 • Moved around some strings
 
-6/11/2022:
+7/11/2022:
 • Added a safe return place ("main") for the OS to return to when finished with a program
 • "to_main" brings you to "main"
 • Changed a few calls to jumps
 • OS is currently an infinite loop of jumping to "main" after key input
 
-6/12/2022:
+7/12/2022:
 • LandOS's main screen now only responds to the follow scan codes:
   - 72 (Up key)
   - 80 (Down key)
   - 28 (Enter)
 • After recieving one of the following keys you are sent to "to_main" where the os responds to any scan code
+
+7/20/2022:
+• Created "BaseFeatures" directory which will hold everything we need for the kernel
+• Multiple files were created to sort the code so you dont want to rip your teeth out looking for a specific function
