@@ -37,3 +37,12 @@
 7/20/2022:
 • Created "BaseFeatures" directory which will hold everything we need for the kernel
 • Multiple files were created to sort the code so you dont want to rip your teeth out looking for a specific function
+
+7/27/2022:
+• Created "drivers.asm" and "pixel.asm" files
+• Created function called 'switch_vmode' to check current video mode and switch the video mode
+  -  If video mode is 0x03 (Text, 80x25, 16fore/8back color) switch video mode to 0x10
+  -  If video mode is 0x10 (Graphics, 640x350, 16 color) switch video mode to 0x03
+• Created function called 'write_pixel' to write a singular pixel to the screen
+• Created function called 'loop_write_pixel' to make a diagnal blue line out of pixels
+• After pressing any key the OS utilizes the 'loop_write_pixel'
