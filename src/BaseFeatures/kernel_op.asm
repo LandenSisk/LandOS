@@ -14,18 +14,20 @@ call newline
 mov si, keyinput
 call printstring
 call newline
-jmp .nav_main
-.nav_main: ; Moving cursor and selecting things on the main screen
+call switch_vmode
+call write_pixel
+; jmp .nav_main
+; .nav_main: ; Moving cursor and selecting things on the main screen
 ; Get key and check if scan code, stored in ah, is Up(72), Down(80), or Enter(28)
-mov ah, 0x00
-int 0x16
-cmp ah, 72 ; up
-je to_main
-cmp ah, 80 ; down
-je to_main
-cmp ah, 28 ; enter
-je to_main
-jmp .nav_main
+; mov ah, 0x00
+; int 0x16
+; cmp ah, 72 ; up
+; je to_main
+; cmp ah, 80 ; down
+; je to_main
+; cmp ah, 28 ; enter
+; je to_main
+; jmp .nav_main
 
 ; jump to main instead of calling because we will not need to return anytime soon
 to_main:
@@ -42,6 +44,7 @@ jne .cont
 .cont:
 jmp main
 
+errmsg db 'ERROR', 0
 welcomemsg db 'Welcome to LandOS', 0
 returnmsg db 'Returning to home page', 0
 successmsg db 'Kernel successfully loaded', 0
