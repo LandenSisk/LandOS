@@ -30,3 +30,5 @@ jmp $ ; Necessary
 %include 'BaseFeatures/screen.asm'
 %include 'BaseFeatures/audio.asm'
 %include 'BaseFeatures/chars.asm'
+%include 'BaseFeatures/drivers.asm'
+%include 'BaseFeatures/pixel.asm'
