@@ -15,7 +15,8 @@ mov si, keyinput
 call printstring
 call newline
 call switch_vmode
-call write_pixel
+call loop_write_pixel
+
 ; jmp .nav_main
 ; .nav_main: ; Moving cursor and selecting things on the main screen
 ; Get key and check if scan code, stored in ah, is Up(72), Down(80), or Enter(28)
@@ -28,6 +29,8 @@ call write_pixel
 ; cmp ah, 28 ; enter
 ; je to_main
 ; jmp .nav_main
+jmp $ ; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
+
 
 ; jump to main instead of calling because we will not need to return anytime soon
 to_main:
@@ -43,6 +46,8 @@ cmp al, 0
 jne .cont
 .cont:
 jmp main
+jmp $ 
+; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
 
 errmsg db 'ERROR', 0
 welcomemsg db 'Welcome to LandOS', 0
