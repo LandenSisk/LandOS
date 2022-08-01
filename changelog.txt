@@ -46,3 +46,6 @@
 • Created function called 'write_pixel' to write a singular pixel to the screen
 • Created function called 'loop_write_pixel' to make a diagnal blue line out of pixels
 • After pressing any key the OS utilizes the 'loop_write_pixel'
+
+7/31/2022:
+• OS now has small delay when drawing each pixel
