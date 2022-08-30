@@ -15,7 +15,7 @@ mov si, keyinput
 call printstring
 call newline
 call switch_vmode
-call loop_write_pixel
+call drawVariableWindow
 
 ; jmp .nav_main
 ; .nav_main: ; Moving cursor and selecting things on the main screen
@@ -30,7 +30,6 @@ call loop_write_pixel
 ; je to_main
 ; jmp .nav_main
 jmp $ ; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
-
 
 ; jump to main instead of calling because we will not need to return anytime soon
 to_main:
