@@ -49,3 +49,9 @@
 
 7/31/2022:
 • OS now has small delay when drawing each pixel
+
+8/29/2022:
+• Setting up new function that will allow us to draw custom rectangels.
+• winArr holds 4 values: length(first), width(second), currentLoc(third), and process(fourth)
+  - These values will constantly be modified throught the program and will look completely different when it finishes
+  - You will still have to change color and starting position in assembly code
