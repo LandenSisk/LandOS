@@ -31,7 +31,7 @@ For those who want to use emulate LandOS on a Termux-friendly device will need a
 Once thats finished, we'll install TigerVNC<br /><br />
 ```> pkg install TigerVNC```<br />
 
-Finally, we want to install QEMU (Specifically x86_64)<br />< br/>
+Finally, we want to install QEMU (Specifically x86_64)<br /><br />
 
 ```> pkg install qemu-system-x86_64```<br />
 
