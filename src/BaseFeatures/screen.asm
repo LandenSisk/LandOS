@@ -65,3 +65,11 @@ jmp .vcont
 .vcont:
 popa
 ret
+
+regToString:
+mov ah, 24
+add ah, 48
+mov [convReg], ah
+mov si, convReg
+ret
+convReg dd "000000"

@@ -14,8 +14,8 @@ call newline
 mov si, keyinput
 call printstring
 call newline
-call switch_vmode
-call drawVariableWindow
+call regToString
+call printstring
 
 ; jmp .nav_main
 ; .nav_main: ; Moving cursor and selecting things on the main screen
