@@ -32,3 +32,4 @@ jmp $ ; Necessary
 %include 'BaseFeatures/chars.asm'
 %include 'BaseFeatures/drivers.asm'
 %include 'BaseFeatures/pixel.asm'
+%include 'BaseFeatures/math.asm'
