@@ -1,4 +1,4 @@
-<h1>Running LandOS on Debian/Ubunutu    <img src="Resources/Debian_logo.png" alt="Debian Logo" height="40px">   <img src="Resources/Ubuntu-Logo.png" alt="Ubuntu Logo" height="40px"></h1>
+<h1>Running LandOS on Debian/Ubunutu    <img src="../Resources/Debian_logo.png" alt="Debian Logo" height="40px">   <img src="../Resources/Ubuntu-Logo.png" alt="Ubuntu Logo" height="40px"></h1>
 <hr />
 <h3>Requirements</h3>
 <p>You will need these tools to run LandOS (unless marked "Optional).</p>
@@ -24,7 +24,7 @@
 
 ```~ $ chmod +x build.sh && ./build.sh``` <br />
 <p>If you do everything properly, you should be greeted with this screen:</p>
-<img src="Resources/LandOS.png" alt="LandOS Welcome Screen">
+<img src="../Resources/LandOS.png" alt="LandOS Welcome Screen">
 <br />
 <h3>Building LandOS</h3>
 <p>If you modified LandOS and need to rebuild or just want to build from source code, there is a build script that has been provided for you already.  </p>
