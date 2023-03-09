@@ -13,28 +13,19 @@ call printstring
 call newline
 mov si, keyinput
 call printstring
-call newline
-call regToString
-call printstring
-
-; jmp .nav_main
-; .nav_main: ; Moving cursor and selecting things on the main screen
-; Get key and check if scan code, stored in ah, is Up(72), Down(80), or Enter(28)
-; mov ah, 0x00
-; int 0x16
-; cmp ah, 72 ; up
-; je to_main
-; cmp ah, 80 ; down
-; je to_main
-; cmp ah, 28 ; enter
-; je to_main
-; jmp .nav_main
+jmp .nav_main
+.nav_main: ; Moving cursor and selecting things on the main screen
+mov ah, 0x00
+int 0x16
+cmp ah, 0x1e ; up
+je secmsg
+jmp to_main
 jmp $ ; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
 
 ; jump to main instead of calling because we will not need to return anytime soon
 to_main:
 call newscreen
-mov si, returnmsg
+mov si, welcomemsg
 call printstring
 call newline
 mov si, keyinput

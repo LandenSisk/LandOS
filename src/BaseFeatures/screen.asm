@@ -37,7 +37,7 @@ ret
 changebgcolor:
 mov ah, 0xB
 mov bh, 0x00
-mov bl, 0x01 ; Modify value here to change background color
+; set bl to whatever color you want
 int 0x10
 ret
 
@@ -65,11 +65,3 @@ jmp .vcont
 .vcont:
 popa
 ret
-
-regToString:
-mov ah, 24
-add ah, 48
-mov [convReg], ah
-mov si, convReg
-ret
-convReg dd "000000"

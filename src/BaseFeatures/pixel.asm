@@ -37,6 +37,8 @@ jmp .check
 .done:
 ret
 
+
+; work in progress
 drawVariableWindow:
 pusha
 mov ah, [winArr+4] ; EVERY 4 BITS IS THE NEXT ELEMENT IN ARRAY
