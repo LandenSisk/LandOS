@@ -26,10 +26,10 @@ jmp to_main
 
 jmp $ ; Necessary 
 
-%include 'BaseFeatures/kernel_op.asm'
-%include 'BaseFeatures/screen.asm'
-%include 'BaseFeatures/audio.asm'
-%include 'BaseFeatures/chars.asm'
-%include 'BaseFeatures/drivers.asm'
-%include 'BaseFeatures/pixel.asm'
-%include 'BaseFeatures/math.asm'
+%include 'src/BaseFeatures/kernel_op.asm'
+%include 'src/BaseFeatures/screen.asm'
+%include 'src/BaseFeatures/audio.asm'
+%include 'src/BaseFeatures/chars.asm'
+%include 'src/BaseFeatures/drivers.asm'
+%include 'src/BaseFeatures/pixel.asm'
+%include 'src/BaseFeatures/math.asm'
