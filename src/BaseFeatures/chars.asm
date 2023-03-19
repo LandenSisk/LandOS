@@ -55,5 +55,29 @@ call printstring
 call newline
 ret
 
+inttostring: ; (thanks MikeOS)
+pusha
+mov cx, 0
+mov bx, 10
+mov di, .t
+.push:
+mov dx, 0
+div bx
+inc cx
+push dx	
+test ax, ax
+jnz .push
+.pop:
+pop dx
+add dl, '0'
+mov [di], dl
+inc di
+dec cx
+jnz .pop
+mov byte [di], 0
+popa
+mov ax, .t
+ret
 
+.t times 7 db 0
 secstring db 0x69,0x03,0x79,0x6F,0x75,0x61,0x62,0x62,0x75,0x00

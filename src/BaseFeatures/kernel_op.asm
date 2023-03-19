@@ -17,7 +17,7 @@ jmp .nav_main
 .nav_main: ; Moving cursor and selecting things on the main screen
 mov ah, 0x00
 int 0x16
-cmp ah, 0x1e ; up
+cmp ah, 0x54
 je secmsg
 jmp to_main
 jmp $ ; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
@@ -25,7 +25,9 @@ jmp $ ; just in case we can't end this function properly.  OS will continue to r
 ; jump to main instead of calling because we will not need to return anytime soon
 to_main:
 call newscreen
-mov si, welcomemsg
+mov bl, 0x00
+call changebgcolor
+mov si, successmsg
 call printstring
 call newline
 mov si, keyinput
@@ -35,6 +37,10 @@ int 0x16
 cmp al, 0
 jne .cont
 .cont:
+mov ah, 0x86
+mov cx, 0x000F ;cx:dx microseconds
+mov dx, 0x0424
+int 0x15
 jmp main
 jmp $ 
 ; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
