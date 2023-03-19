@@ -17,11 +17,6 @@ mov ds, ax
 
 ; All functions will be called until i can loop back to a safe place
 
-call newscreen
-
-mov si, successmsg
-call printstring
-call newline
 jmp to_main
 
 jmp $ ; Necessary 
