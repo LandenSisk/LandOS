@@ -28,3 +28,4 @@ jmp $ ; Necessary
 %include 'src/BaseFeatures/drivers.asm'
 %include 'src/BaseFeatures/pixel.asm'
 %include 'src/BaseFeatures/math.asm'
+%include 'src/BaseFeatures/memory.asm'
