@@ -32,6 +32,8 @@ call printstring
 call newline
 mov si, keyinput
 call printstring
+call newline
+call disp_cont_ram
 mov ah, 0x00
 int 0x16
 cmp al, 0
