@@ -7,7 +7,7 @@
 [BITS 16]
 [ORG 0] ; Starting at a clean new place
 
-mov ax, 07C0h
+mov ax, 0x8000
 add ax, 288
 mov ss, ax
 mov sp, 4096
