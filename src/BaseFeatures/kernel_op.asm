@@ -34,18 +34,46 @@ mov si, keyinput
 call printstring
 call newline
 call disp_cont_ram
+call newline
+mov dx, 90
+call print_reg
 mov ah, 0x00
 int 0x16
 cmp al, 0
 jne .cont
 .cont:
-mov ah, 0x86
-mov cx, 0x000F ;cx:dx microseconds
-mov dx, 0x0424
-int 0x15
 jmp main
 jmp $ 
-; just in case we can't end this function properly.  OS will continue to run on the screen we got stuck on
+
+print_reg: ; DON'T SET ALL REGISTERS BIOS GETS MAD ?
+pusha
+call inttostring
+mov si, ax
+call printstring
+call newline
+popa
+pusha
+mov ax, bx
+call inttostring
+mov si, ax
+call printstring
+call newline
+popa
+pusha
+mov ax, cx
+call inttostring
+mov si, ax
+call printstring
+call newline
+popa
+pusha
+mov ax, dx
+call inttostring
+mov si, ax
+call printstring
+call newline
+popa
+ret
 
 errmsg db 'ERROR', 0
 welcomemsg db 'Welcome to LandOS', 0

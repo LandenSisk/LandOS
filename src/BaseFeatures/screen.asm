@@ -65,3 +65,9 @@ jmp .vcont
 .vcont:
 popa
 ret
+
+get_cursor: ; DH: ROW, DL: COLUMN
+mov ah, 0x03
+mov bh, 0x00
+int 0x10
+ret
