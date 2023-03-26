@@ -35,7 +35,6 @@ call printstring
 call newline
 call disp_cont_ram
 call newline
-mov dx, 90
 call print_reg
 mov ah, 0x00
 int 0x16
