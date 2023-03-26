@@ -5,14 +5,13 @@
 ; Description:  File which contains the code and includes for the kernel.
 
 [BITS 16]
-[ORG 0] ; Starting at a clean new place
+[ORG 0x8000] ; Starting at a clean new place
+
+mov ax, 0x9000
+mov ss, ax
+mov sp, 0xFFFF
 
 mov ax, 0x8000
-add ax, 288
-mov ss, ax
-mov sp, 4096
-
-mov ax, 07C0h
 mov ds, ax
 
 ; All functions will be called until i can loop back to a safe place
